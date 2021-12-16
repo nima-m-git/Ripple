@@ -56,7 +56,8 @@ const removeBreachedShape = (width, height) => {
 };
 
 function draw() {
-  const ctx = document.getElementById("canvas").getContext("2d");
+  const canvas = document.getElementById("canvas");
+  const ctx = canvas.getContext("2d");
   const width = (canvas.width = window.innerWidth);
   const height = (canvas.height = window.innerHeight);
 

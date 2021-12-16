@@ -50,7 +50,7 @@ const addNewShape = () => {
 
 const removeBreachedShape = (width, height) => {
   // checks if the oldest shape has breached the canvas edge and removes it
-  if (shapes[0].radius > width / 2 || shapes[0].radius > height / 2) {
+  if (shapes[0].radius > Math.sqrt((width / 2) ** 2 + (height / 2) ** 2)) {
     shapes.shift();
   }
 };

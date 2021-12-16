@@ -65,7 +65,7 @@ function draw() {
 
   ctx.translate(width / 2, height / 2);
 
-  shapes.map((shape) => {
+  shapes.forEach((shape) => {
     shape.draw(ctx);
     shape.update();
   });

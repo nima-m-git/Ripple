@@ -7,6 +7,8 @@ let colorFrequency = 1.5;
 
 let shapes = [];
 
+let width, height;
+
 const cycle = (function () {
   let count = 0;
   return () => {
@@ -55,16 +57,21 @@ const removeBreachedShape = (width, height) => {
   }
 };
 
-function draw() {
+function initCanvas() {
   const canvas = document.getElementById("canvas");
   const ctx = canvas.getContext("2d");
-  const width = (canvas.width = window.innerWidth);
-  const height = (canvas.height = window.innerHeight);
+  width = canvas.width = window.innerWidth;
+  height = canvas.height = window.innerHeight;
 
   ctx.fillStyle = "rgb(0, 0, 0)";
   ctx.fillRect(0, 0, width, height);
 
   ctx.translate(width / 2, height / 2);
+  return ctx;
+}
+
+function draw() {
+  const ctx = initCanvas();
 
   shapes.forEach((shape) => {
     shape.draw(ctx);
